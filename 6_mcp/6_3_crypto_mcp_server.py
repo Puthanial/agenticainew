@@ -13,13 +13,13 @@ def get_cryptocurrency_price(crypto: str) -> str:
     try:
         # Use CoinGecko API to fetch current price in INR
         url = "https://api.coingecko.com/api/v3/simple/price"
-        params = {"ids": crypto.lower(), "vs_currencies": "inr"}
+        params = {"ids": crypto.lower(), "vs_currencies": "usd"}
         response = requests.get(url, params=params, timeout=10)
         response.raise_for_status()
         data = response.json()
-        price = data.get(crypto.lower(), {}).get("inr")
-        if price is not None:
-            return f"The price of {crypto} is ₹{price}."
+        price_usd = data.get(crypto.lower(), {}).get("usd")
+        if price_usd is not None:
+            return f"The price of {crypto} is ${price_usd}."
         else:
             return f"Price for {crypto} not found."
     except Exception as e:
