@@ -8,7 +8,7 @@ load_dotenv(override=True)
 client = OpenAI()
 
 # --- Step 1: Read Buffett PDF into a single string ---
-reader = PdfReader("C:/code/agenticai/1_openai_chat_requests/Warren_Buffett.pdf")
+reader = PdfReader("C://code//agenticai//1_openai_chat_requests//Warren_Buffett.pdf")
 buffett = ""
 for page in reader.pages:
     text = page.extract_text()
@@ -27,7 +27,7 @@ def chat_with_buffett(message, history):
         input=[
             # Pass only the first 4k of Buffett words, ~ 1000 tokens
             # Avoids overloading: Earlier models supported just 4k tokens, GPT-4o-mini supports ~128k
-            {"role": "system", "content": f"You are a helpful assistant. You can only answer based on this Buffett content:\n\n{buffett[:4000]}"},
+            {"role": "system", "content": f"You are a helpful assistant. You can answer based on the following text:\n\n{buffett[:4000]} or from the Internet."},
             {"role": "user", "content": message},
         ]
     )

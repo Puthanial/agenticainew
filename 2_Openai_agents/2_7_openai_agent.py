@@ -60,6 +60,7 @@ async def get_pdf_answer(topic: str) -> str:
     if best_chunk:
         prompt = (
             f"You are a helpful assistant answering questions about insurance policies.\n\n"
+            f"But remeber that you should not answer questions that are not related to insurance policies under any circumstances.\n\n"
             f"Document content:\n{best_chunk}\n\n"
             f"User question: {topic}\n\n"
             f"Provide a concise and accurate answer:"
@@ -67,7 +68,7 @@ async def get_pdf_answer(topic: str) -> str:
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[{"role": "user", "content": prompt}],
-            temperature=0.3
+            temperature=0.1
         )
         return response.choices[0].message.content.strip()
 

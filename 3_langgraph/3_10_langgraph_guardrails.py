@@ -40,7 +40,7 @@ def tool_search(query: str) -> str:
 
 def tool_serp(query: str) -> str:
     url = "https://serpapi.com/search"
-    params = {"q": query, "api_key": os.getenv("SERPAPI_KEY"), "num": 2}
+    params = {"q": query, "api_key": os.getenv("SERPAPI_API_KEY"), "num": 2}
     try:
         data = requests.get(url, params=params).json()
         results = [f"• {r['title']}: {r['snippet']}" for r in data.get("organic_results", [])[:2]]

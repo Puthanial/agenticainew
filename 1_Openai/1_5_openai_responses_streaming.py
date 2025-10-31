@@ -14,7 +14,7 @@ stream = client.responses.create(
     input=[
         {
             "role": "user",
-            "content": "Say 'double bubble bath' ten times fast.",
+            "content": "Say 'double bubble bath' slowly and repeat it 10 times.",
         },
     ],
     stream=True,

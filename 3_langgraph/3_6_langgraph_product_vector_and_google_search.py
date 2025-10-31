@@ -21,7 +21,7 @@ class State(TypedDict):
 # Setup
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 vectordb = FAISS.load_local("c://code//agenticai//3_langgraph//product_embeddings_faiss", embeddings, allow_dangerous_deserialization=True)
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=os.getenv("GOOGLE_API_KEY"))
+llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", google_api_key=os.getenv("GOOGLE_API_KEY"))
 
 # Nodes
 def vector_search(state: State) -> State:
@@ -30,8 +30,8 @@ def vector_search(state: State) -> State:
     return state
 
 def serp_search(state: State) -> State:
-    url = "https://serpapi.com/search"
-    params = {"q": f"{state['query']} reviews", "api_key": os.getenv("SERPAPI_KEY"), "num": 2}
+    url = "https://serpapi.com/search"  
+    params = {"q": f"{state['query']} reviews", "api_key": os.getenv("SERPAPI_API_KEY"), "num": 2}
     data = requests.get(url, params=params).json()
     results = [f"• {r['title']}: {r['snippet']}" for r in data.get("organic_results", [])[:2]]
     state["serp"] = "\n".join(results)

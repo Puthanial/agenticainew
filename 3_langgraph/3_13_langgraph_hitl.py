@@ -12,7 +12,7 @@ class ProductState(TypedDict):
 # Load embeddings once
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 vectordb = FAISS.load_local(
-    "c:/code/agenticai/3_langgraph/product_embeddings_faiss", 
+    "c://code//agenticai//3_langgraph//product_embeddings_faiss", 
     embeddings, 
     allow_dangerous_deserialization=True
 )

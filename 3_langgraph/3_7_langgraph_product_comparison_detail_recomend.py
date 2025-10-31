@@ -17,10 +17,10 @@ class State(TypedDict):
     result: str
 
 # Setup
-vectordb = FAISS.load_local("c:/code/agenticai/3_langgraph/product_embeddings_faiss", 
+vectordb = FAISS.load_local("c://code//agenticai//3_langgraph//product_embeddings_faiss", 
     HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2"), 
     allow_dangerous_deserialization=True)
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=os.getenv("GOOGLE_API_KEY"))
+llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", google_api_key=os.getenv("GOOGLE_API_KEY"))
 
 # Nodes
 def classify(state: State) -> State:

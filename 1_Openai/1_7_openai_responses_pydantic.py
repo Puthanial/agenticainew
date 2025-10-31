@@ -16,7 +16,9 @@ class CalendarEvent(BaseModel):
 response = client.responses.parse(
     model="gpt-4o-mini",
     input=[
-        {"role": "system", "content": "Extract the event information."},
+        {   "role": "system", 
+            "content": "Extract the event information."
+        },
         {
             "role": "user",
             "content": "Alice and Bob are going to a picnic on Sunday.",

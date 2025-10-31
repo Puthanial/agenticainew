@@ -8,8 +8,8 @@ load_dotenv(override=True)
 
 # Define two agents with different instructions
 upi_agent = Agent(
-    name="UPI_Essay_Writer",
-    instructions="Write a clear, well-structured essay in 4 paragraphs about Unified Payments Interface (UPI)."
+    name="Cross_Bodrer_Payments_Essay_Writer",
+    instructions="Write a clear, well-structured essay in 4 paragraphs about Cross Border Payments."
 )
 
 agent_api_agent = Agent(
@@ -31,7 +31,7 @@ async def main():
 
     print(f"Both tasks completed in {time.time() - t1:.2f} seconds\n")
 
-    print("=== Essay on UPI ===\n")
+    print("=== Essay on Cross Border Payments ===\n")
     print(result1.final_output)
 
     print("\n=== Note on Agent API ===\n")

@@ -1,4 +1,3 @@
-# Analyze an image
 from openai import OpenAI
 from dotenv import load_dotenv
 
@@ -8,7 +7,7 @@ client = OpenAI()
 
 response = client.responses.create(
     model="gpt-4o-mini",
-    instructions="Talk like a drunk person.",
+    instructions="Speak like Sherlock Holmes.",
     input="Are semicolons optional in JavaScript?",
 )
 

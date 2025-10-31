@@ -104,7 +104,8 @@ runnable = graph.compile()
 # Run
 if __name__ == "__main__":
     user_input = {
-        "user_query": "I want a good camera"
+        #"user_query": "I want a good camera"
+        "user_query": "I want running shoes"
     }
     result = runnable.invoke(user_input)
     print("\nFinal Output:")

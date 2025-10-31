@@ -14,7 +14,7 @@ load_dotenv()
 
 # ---- Setup ----
 vectordb = FAISS.load_local(
-    "c:/code/agenticai/3_langgraph/product_embeddings_faiss",
+    "c://code//agenticai//3_langgraph//product_embeddings_faiss",
     HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2"),
     allow_dangerous_deserialization=True,
 )
@@ -32,7 +32,7 @@ def tool_search(query: str) -> str:
 
 def tool_serp(query: str) -> str:
     url = "https://serpapi.com/search"
-    params = {"q": query, "api_key": os.getenv("SERPAPI_KEY"), "num": 2}
+    params = {"q": query, "api_key": os.getenv("SERPAPI_API_KEY"), "num": 2}
     try:
         data = requests.get(url, params=params).json()
         results = [f"• {r['title']}: {r['snippet']}" for r in data.get("organic_results", [])[:2]]

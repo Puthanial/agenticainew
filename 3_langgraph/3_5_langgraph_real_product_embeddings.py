@@ -1,3 +1,5 @@
+# https://www.kaggle.com/datasets/asaniczka/amazon-products-dataset-2023-1-4m-products?select=amazon_products.csv
+
 import gradio as gr
 import pandas as pd
 from typing import TypedDict
@@ -12,8 +14,8 @@ class ProductState(TypedDict):
 
 # Load embeddings once
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-vectordb = FAISS.load_local("c:/code/agenticai/3_langgraph/product_embeddings_faiss", embeddings, allow_dangerous_deserialization=True)
-df = pd.read_pickle("c:/code/agenticai/3_langgraph/product_data.pkl")
+vectordb = FAISS.load_local("c://code//agenticai//3_langgraph//product_embeddings_faiss", embeddings, allow_dangerous_deserialization=True)
+df = pd.read_pickle("c://code//agenticai//3_langgraph//product_data.pkl")
 
 # Node 1: Search
 def search_products(state: ProductState) -> ProductState:
@@ -31,9 +33,10 @@ def format_response(state: ProductState) -> ProductState:
     return state
 
 # Build graph
-graph = StateGraph(ProductState)
+graph = StateGraph(ProductState)    
 graph.add_node("search", search_products)
 graph.add_node("format", format_response)
+# graph.add_edge(START, "search")
 graph.set_entry_point("search")
 graph.add_edge("search", "format")
 graph.add_edge("format", END)

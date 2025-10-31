@@ -63,8 +63,8 @@ def save_memory(query: str, results: str):
 
 # Load embeddings once
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-vectordb = FAISS.load_local("c:/code/agentic_ai/4_langgraph/product_embeddings_faiss", embeddings, allow_dangerous_deserialization=True)
-df = pd.read_pickle("c:/code/agentic_ai/4_langgraph/product_data.pkl")
+vectordb = FAISS.load_local("c://code/agenticai//3_langgraph//product_embeddings_faiss", embeddings, allow_dangerous_deserialization=True)
+df = pd.read_pickle("c://code//agenticai//3_langgraph//product_data.pkl")
 
 # Node 1: Search with memory check, explainability, and observability
 def search_products(state: ProductState) -> ProductState:
