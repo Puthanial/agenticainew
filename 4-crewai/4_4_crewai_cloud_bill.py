@@ -13,7 +13,7 @@ load_dotenv(override=True)
 def get_gcp_billing_data(query_type: str) -> str:
     """Get GCP billing data based on agent's specific query"""
     try:
-        df = pd.read_csv('c://code//agentic_ai//4_crewai//gcp_billing.csv')
+        df = pd.read_csv('c://code//agenticai//4_crewai//gcp_billing.csv')
         
         # Return ACTUAL data summary
         summary = f"REAL DATA - {len(df)} records, Total cost: ₹{df['Total Cost (INR)'].sum():,.0f}\n"
@@ -30,7 +30,7 @@ def get_gcp_billing_data(query_type: str) -> str:
 def query_resource_metrics(service_filter: str, threshold: int) -> str:
     """Query specific resource metrics with REAL resource details"""
     try:
-        df = pd.read_csv('c://code//agentic_ai//5_crew//gcp_billing.csv')
+        df = pd.read_csv('c://code//agenticai//4_crewai//gcp_billing.csv')
         
         if 'compute' in service_filter.lower():
             filtered = df[df['Service Name'].str.contains('Compute|VM|Instance', case=False, na=False)]
@@ -80,7 +80,7 @@ compute_analyst = Agent(
 financial_advisor = Agent(
     role="Cloud Financial Controller", 
     goal="Maximize cost savings while minimizing business risk",
-    backstory="""You're the CFO's trusted advisor for cloud spending. 
+    backstory="""You're the CFO's trusted advisor for cloud spending/Finops. 
     You've saved companies millions through smart optimization. 
     You're skeptical of aggressive changes and always want ROI analysis.
     You think in terms of monthly/quarterly budgets and business impact.""",

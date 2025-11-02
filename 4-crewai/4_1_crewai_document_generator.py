@@ -7,7 +7,7 @@ load_dotenv(override=True)
 
 # 1. Create Agents
 researcher = Agent(
-    role="Tech Researcher",
+    role="Technical Researcher",
     goal="Research and gather accurate information about technologies",
     backstory="You are an expert at finding reliable technical information and summarizing key concepts.",
     verbose=True
@@ -52,7 +52,7 @@ doc_crew = Crew(
 # 4. Run the crew
 if __name__ == "__main__":
     # Change this to any technology you want to document
-    technology = "Docker"
+    technology = "Kubernetes"
     
     print(f"Starting documentation generation for: {technology}")
     print("=" * 50)

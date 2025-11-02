@@ -23,12 +23,12 @@ mailersend_api_key = os.getenv("MAILERSEND_API_KEY")
 # Load embeddings + VectorDB
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 vectordb = FAISS.load_local(
-    "c://code//agentic_ai//4_crewai//customer_support_faiss",
+    "c://code//agenticai//4_crewai//customer_support_faiss",
     embeddings,
     allow_dangerous_deserialization=True
 )
 
-df = pd.read_pickle("c://code//agentic_ai//4_crewai//customer_tickets.pkl")
+df = pd.read_pickle("c://code//agenticai//4_crewai//customer_tickets.pkl")
 
 # ---------------------------------------------------
 # Define tools (CrewAI-compatible)

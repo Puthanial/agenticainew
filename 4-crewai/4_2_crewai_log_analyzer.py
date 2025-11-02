@@ -11,8 +11,8 @@ url = "https://raw.githubusercontent.com/logpai/loghub/master/Spark/Spark_2k.log
 logs = requests.get(url).text[:2000]  # First 2000 chars
 
 # Agents
-parser = Agent(role="Log Parser", goal="Parse Spark logs", backstory="Spark log expert")
-analyst = Agent(role="Analyst", goal="Find issues", backstory="Performance expert")
+parser = Agent(role="Log Parser", goal="Parse Spark logs", backstory="Hadoop Mapreduce and administration and Spark expert and Spark log expert")
+analyst = Agent(role="Analyst", goal="Find issues", backstory="Performance, security, and disk space managementexpert")
 
 # Tasks
 parse_task = Task(
